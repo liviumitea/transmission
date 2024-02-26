@@ -39,7 +39,7 @@ spec:
             volumes:
             - name: downloads-volume
               hostPath:
-                path: /data-nfs/transmission/downloads
+                path: /data-nfs/plex
                 type: DirectoryOrCreate
             - name: config-volume
               hostPath:
