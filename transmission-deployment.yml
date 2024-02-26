@@ -1,0 +1,51 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+    name: transmission
+    namespace: transmission
+    labels:
+        app: transmission
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: transmission
+    template:
+        metadata:
+            name: transmission-pod
+            namespace: transmission
+            labels:
+                app: transmission
+        spec:
+            containers:
+            - name: transmission-container
+              image: ghcr.io/linuxserver/transmission
+              ports:
+              - containerPort: 9091
+                protocol: TCP
+              - containerPort: 51413
+                protocol: TCP
+              - containerPort: 51413
+                protocol: UDP
+
+              volumeMounts:
+              - mountPath: /downloads
+                name: downloads-volume
+              - mountPath: /config
+                name: config-volume
+              - mountPath: /watch
+                name: watch-volume
+
+            volumes:
+            - name: downloads-volume
+              hostPath:
+                path: /data-nfs/transmission/downloads
+                type: DirectoryOrCreate
+            - name: config-volume
+              hostPath:
+                path: /data-nfs/transmission/config
+                type: DirectoryOrCreate
+            - name: watch-volume
+              hostPath:
+                path: /data-nfs/transmission/watch
+                type: DirectoryOrCreate
