@@ -4,19 +4,17 @@ metadata:
     name: transmission-service
     namespace: transmission
 spec:
-    type: NodePort
+    type: LoadBalancer
+    loadBalancerIP: 172.16.23.27
     selector:
         app: transmission
     ports:
     - protocol: TCP
       name: web-interface
       port: 9091
-      nodePort: 9091
     - protocol: TCP
       name: torrent-tcp
       port: 51413
-      nodePort: 51413
     - protocol: UDP
       name: torrents-udp
       port: 51413
-      nodePort: 51413
