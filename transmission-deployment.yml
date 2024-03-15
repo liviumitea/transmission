@@ -49,8 +49,8 @@ spec:
             - name: config-volume
               hostPath:
                 path: /data-nfs/transmission/config
-                type: Directory
+                type: DirectoryorCreate
             - name: watch-volume
               hostPath:
                 path: /data-nfs/transmission/watch
-                type: Directory
+                type: DirectoryorCreate
