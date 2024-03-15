@@ -19,7 +19,12 @@ spec:
         spec:
             containers:
             - name: transmission-container
-              image: ghcr.io/linuxserver/transmission
+              image: lscr.io/linuxserver/transmission:latest
+              env:
+              - name: PUID
+                value: "65534"
+              - name: PGID
+                value: "65534"
               ports:
               - containerPort: 9091
                 protocol: TCP
