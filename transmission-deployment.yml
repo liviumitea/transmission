@@ -36,10 +36,6 @@ spec:
               - mountPath: /watch
                 name: watch-volume
 
-              securityContext:
-                allowPrivilegeEscalation: false
-                runAsUser: 911
-
             volumes:
             - name: downloads-volume
               hostPath:
