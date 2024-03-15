@@ -40,12 +40,12 @@ spec:
             - name: downloads-volume
               hostPath:
                 path: /data-nfs/plex
-                type: DirectoryOrCreate
+                type: Directory
             - name: config-volume
               hostPath:
                 path: /data-nfs/transmission/config
-                type: DirectoryOrCreate
+                type: Directory
             - name: watch-volume
               hostPath:
                 path: /data-nfs/transmission/watch
-                type: DirectoryOrCreate
+                type: Directory
