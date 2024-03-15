@@ -38,7 +38,7 @@ spec:
 
               securityContext:
                 allowPrivilegeEscalation: false
-                runAsUser: 0
+                runAsUser: 911
 
             volumes:
             - name: downloads-volume
