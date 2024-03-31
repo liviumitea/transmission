@@ -11,7 +11,7 @@ spec:
     ports:
     - protocol: TCP
       name: web-interface
-      port: 80
+      port: 9091
     - protocol: TCP
       name: torrent-tcp
       port: 51413
